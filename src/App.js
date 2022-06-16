@@ -1,26 +1,18 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import SplashScreen from "./components/Splash";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Signup from "./components/auth/Signup";
-import Login from "./components/auth/Login";
-import withAuth from "./components/auth/withAuth";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Splash from './pages/splashcreen/SplashScreen';
+import Home from './pages/Home';
+import DeleteCar from './pages/DeleteCar';
 
+import withAuth from './components/auth/withAuth';
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Router>
-        <Navbar />
         <Switch>
-          <Route exact path='/' component={SplashScreen} />
-          <Route
-            exact
-            path='/protected_route'
-            component={withAuth(ProtectedRoute)}
-          />
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/login' component={Login} />
+          <Route exact path="/" component={Splash} />
+          <Route path="/home" component={withAuth(Home)} />
+          <Route path="/delete" component={withAuth(DeleteCar)} />
         </Switch>
       </Router>
     </div>
@@ -28,4 +20,3 @@ function App() {
 }
 
 export default App;
-

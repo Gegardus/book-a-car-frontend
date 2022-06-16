@@ -1,12 +1,12 @@
-import { AUTHENTICATED, NOT_AUTHENTICATED } from "../../actions";
+import { AUTHENTICATED, NOT_AUTHENTICATED } from '../../actions';
 
 const initialState = {
   authChecked: false,
   loggedIn: false,
-  currentUser: {}
+  currentUser: {},
 };
 
- const  authReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTHENTICATED:
       return {
@@ -18,10 +18,10 @@ const initialState = {
       return {
         authChecked: true,
         loggedIn: false,
-        currentUser: {}
+        currentUser: {},
       };
     default:
       return state;
   }
-}
+};
 export default authReducer;

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+
+.sidebar-wrapper {
+  border-right: 2px solid rgb(214, 204, 204);
+}
+
+header {
+  padding-top: 100px;
+  text-decoration: underline;
+  margin-left: 27px;
+  font-family: 'Kaushan Script', sans-serif;
+  transform: rotate(-20deg);
+}
+
+header h2 {
+  font-weight: 900;
+  font-size: 35px;
+  margin-bottom: 150px;
+}
+
+.user-mail {
+  padding: 0 20px;
+  font-family: 'Kaushan Script', sans-serif;
+  font-size: 15px;
+}
+
+.logout {
+  font-size: 14px;
+}
+
+.logout:hover {
+  background-color: rgb(152, 192, 42);
+  padding: 18px 70px;
+  color: #fff;
+}
