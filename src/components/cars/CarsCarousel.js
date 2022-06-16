@@ -11,10 +11,10 @@ const social = [
 ];
 
 const cars = [
-  { car: "https://flyclipart.com/thumb2/aston-martin-cars-png-images-free-download-12690.png" },
-  { car: "https://www.nicepng.com/png/detail/64-648130_southwest-custom-classic-cars-all-new-sport-cars.png" },
-  { car: "https://png.pngtree.com/png-clipart/20210722/ourmid/pngtree-car-blue-transportation-reception-sports-car-png-image_6561592.png" },
-  { car: "https://png.pngtree.com/png-clipart/20210722/ourmid/pngtree-car-red-trolley-sports-car-png-image_6561572.png" }
+  { car: 'https://flyclipart.com/thumb2/aston-martin-cars-png-images-free-download-12690.png' },
+  { car: 'https://www.nicepng.com/png/detail/64-648130_southwest-custom-classic-cars-all-new-sport-cars.png' },
+  { car: 'https://png.pngtree.com/png-clipart/20210722/ourmid/pngtree-car-blue-transportation-reception-sports-car-png-image_6561592.png' },
+  { car: 'https://png.pngtree.com/png-clipart/20210722/ourmid/pngtree-car-red-trolley-sports-car-png-image_6561572.png' },
 ];
 
 const CarsCarousel = () => {
@@ -31,10 +31,10 @@ const CarsCarousel = () => {
   return (
     <div className="flex flex-col gap-4 mt-16 lg:flex-row">
       {displayCars.map((item) => (
-        <div className="flex flex-col items-center w-80 bg-green-200" key={item.name}>   
+        <div className="flex flex-col items-center w-80 bg-green-200" key={item.name}>
           <img src={item.car} alt="car" className="car rounded-full w-60 h-60 blob" />
           <h3 className="uppercase text-slate-900 text-lg mt-6 font-bold">
-              Details
+            Details
           </h3>
           <hr className="border-t-2 border-dashed border-gray-500 w-32 mt-4" />
           <p className="text-gray-400 text-center font-semibold mt-4">{item.details}</p>
