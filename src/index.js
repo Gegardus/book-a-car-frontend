@@ -1,12 +1,16 @@
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './index.css'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { Provider } from "react-redux";
+import store from "./redux/configureStore";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
+  document.getElementById("root")
 );
+
