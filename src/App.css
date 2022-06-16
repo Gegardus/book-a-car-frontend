@@ -1,3 +1,16 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+.mobile-btns {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.header {
+  background-image: linear-gradient(to right, #7cc213cc, #7cc213cc), url('./assets/images/header-mobile-bg.png');
+  background-size: cover;
+}
+
+.desktop-nav {
+  font-family: 'Roboto', sans-serif;
 }

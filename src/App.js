@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
+import Home from './pages/Home';
 
-function App() {
-  return (
-    <div className="App">
-      <p>
-        Edit
-      </p>
-    </div>
-  );
-}
+const App = () => (
+  <div className="">
+    <Home />
+  </div>
+);
 
 export default App;
