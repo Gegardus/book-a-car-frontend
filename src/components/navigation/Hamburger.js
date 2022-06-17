@@ -34,7 +34,7 @@ const Hamburger = () => {
         <div className="text-slate-50 mobile-btns">
           <button
             type="button"
-            className={` text-lime-500 ${!mobileMenu ? 'block' : 'hidden'}`}
+            className={` text-green-400 ${!mobileMenu ? 'block' : 'hidden'}`}
             onClick={() => setMobileMenu(true)}
           >
             <MenuIcon className="h-8" />
