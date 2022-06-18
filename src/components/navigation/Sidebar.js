@@ -13,7 +13,7 @@ import './sidebar.css';
 const navigation = [
   { name: 'Cars', href: '#', current: true },
   { name: 'Reserve', href: '#', current: false },
-  { name: 'My reservations', href: '#', current: false },
+  { name: 'My reservations', href: '/reservations', current: false },
   { name: 'Add car', href: '#', current: false },
   { name: 'Delete car', href: 'delete', current: false },
 ];
