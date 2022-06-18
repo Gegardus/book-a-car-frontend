@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteReservationFromApi } from '../../redux/reducers/reservations/reservations';
 import DaysOfRental from './Count';
 
-const Reservation = (props) => {
+const SingleReservation = (props) => {
   const { reservation } = props;
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.reducerCars);
@@ -87,7 +87,7 @@ const Reservation = (props) => {
   );
 };
 
-Reservation.propTypes = {
+SingleReservation.propTypes = {
   reservation: PropTypes.instanceOf(Object).isRequired,
 };
-export default Reservation;
+export default SingleReservation;

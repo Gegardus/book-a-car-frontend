@@ -19,49 +19,40 @@ export const deleteReservation = (payload) => ({
   payload,
 });
 
+export const addReservationToAPI = (payload) => async (dispatch) => {
+  const token = localStorage.getItem('token');
+  const response = await fetch('http://localhost:3001/api/v1/reservations', {
+    method: 'POST',
+    headers: {
+      Authorization: `${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = await response.json();
+  dispatch(createReservation(data));
+};
+
 export const getReservationsFromAPi = () => async (dispatch) => {
   const token = localStorage.getItem('token');
-  const response = await fetch(
-    'http://localhost:3001/api/v1/reservations',
-    {
-      headers: {
-        Authorization: `${token}`,
-      },
+  const response = await fetch('http://localhost:3001/api/v1/reservations', {
+    headers: {
+      Authorization: `${token}`,
     },
-  );
+  });
   const data = await response.json();
   dispatch(getReservations(data));
 };
 
 export const deleteReservationFromApi = (id) => async (dispatch) => {
   const token = localStorage.getItem('token');
-  await fetch(
-    `http://localhost:3001/api/v1/reservations/${id}`,
-    {
-      method: 'DELETE',
-      headers: {
-        Authorization: `${token}`,
-      },
+  await fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `${token}`,
     },
-  );
+  });
   dispatch(deleteReservation(id));
-};
-
-export const addReservationToAPI = (payload) => async (dispatch) => {
-  const token = localStorage.getItem('token');
-  const response = await fetch(
-    'http://localhost:3001/api/v1/reservations',
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    },
-  );
-  const data = await response.json();
-  dispatch(createReservation(data));
 };
 
 export const reservationsReducer = (state = initialState, action) => {

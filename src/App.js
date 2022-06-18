@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Splash from './pages/splashcreen/SplashScreen';
 import Home from './pages/Home';
+import Reserve from './pages/reservations/Reserve';
+import Reservations from './pages/reservations/Reservations';
 import DeleteCar from './pages/DeleteCar';
 import './App.css';
 
@@ -13,6 +15,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Splash} />
           <Route path="/home" component={withAuth(Home)} />
+          <Route path="/reserve" component={withAuth(Reserve)} />
+          <Route path="/reservations" component={withAuth(Reservations)} />
           <Route path="/delete" component={withAuth(DeleteCar)} />
         </Switch>
       </Router>
