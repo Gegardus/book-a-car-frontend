@@ -31,9 +31,9 @@ function classNames(...classes) {
 
 const Sidebar = ({ currentUser }) => (
   <div className="flex flex-col w-64 sidebar-wrapper">
-    <header className="nav-header">
+    <span className="tittle">
       <h2>Rent a Car</h2>
-    </header>
+    </span>
     <span className="user-mail">{currentUser.email}</span>
 
     <div className="flex-1 flex flex-col pt-3 pb-4 overflow-y-auto">

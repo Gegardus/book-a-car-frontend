@@ -1,5 +1,4 @@
 import React from 'react';
-import { BiFastForwardCircle } from 'react-icons/bi';
 import SplashImage from '../../img/splash.png';
 import Login from './Login';
 import Signup from './Signup';
@@ -15,21 +14,11 @@ export default function Splash() {
         </span>
         <div className="enter">
           <span className="sign-up-button">
-            <Signup>
-              <button className="sign-up-btn" type="button">
-                <h3>Signup</h3>
-                <BiFastForwardCircle />
-              </button>
-            </Signup>
+            <Signup />
           </span>
 
           <span className="login-up-button">
-            <Login>
-              <button className="login-btn" type="button">
-                <h3>Login</h3>
-                <BiFastForwardCircle />
-              </button>
-            </Login>
+            <Login />
           </span>
         </div>
       </div>

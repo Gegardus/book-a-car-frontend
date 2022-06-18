@@ -5,7 +5,7 @@
   border-right: 2px solid rgb(214, 204, 204);
 }
 
-header {
+.tittle {
   padding-top: 100px;
   text-decoration: underline;
   margin-left: 27px;
@@ -13,7 +13,7 @@ header {
   transform: rotate(-20deg);
 }
 
-header h2 {
+.tittle h2 {
   font-weight: 900;
   font-size: 35px;
   margin-bottom: 150px;
