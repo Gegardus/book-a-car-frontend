@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Paginate from './Paginate';
 import insta from '../../assets/images/insta-icon-home.png';
 import twitter from '../../assets/images/twitter-icon-home.png';
@@ -45,7 +46,10 @@ const CarsCarousel = () => {
         <div className="flex flex-col items-center w-80 bg-green-200" key={item.name}>
           <img src={item.photo} alt="car" className="car rounded-full w-60 h-60 blob" />
           <h3 className="uppercase text-slate-900 text-lg mt-6 font-bold">
-            Details
+            <Link to={`/details/${item.id}`}>
+              {item.car_model}
+            </Link>
+
           </h3>
           <hr className="border-t-2 border-dashed border-gray-500 w-32 mt-4" />
           <p className="text-gray-400 text-center font-semibold mt-4">{item.details}</p>
