@@ -1,37 +1,35 @@
 /* eslint-disable camelcase */
 import { useState } from 'react';
-import { useHistory, NavLink } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiArrowBackOutline } from 'react-icons/ti';
 import { checkAuth } from '../../actions/auth';
 import { addReservationToAPI } from '../../redux/reducers/reservations/reservations';
 import './addreservation.css';
 
-const Reserve = () => {
+const AddReservation = () => {
   const user = useSelector(checkAuth);
-  const carsArr = useSelector((state) => state.reducerCars);
+  const carId = useSelector((state) => state.carIdReducer);
 
   const [pick_up_day, setPickUpDay] = useState('');
   const [return_day, setReturnDay] = useState('');
   const [pick_up_city, setPickUpCity] = useState('');
   const [return_city, setReturnCity] = useState('');
-  const [car_id, setCarId] = useState('');
   const dispatch = useDispatch();
   const ChangePickUpDay = (element) => setPickUpDay(element.target.value);
   const ChangeReturnDay = (element) => setReturnDay(element.target.value);
   const ChangePickUpCity = (element) => setPickUpCity(element.target.value);
   const ChangeReturnCity = (element) => setReturnCity(element.target.value);
-  const ChangeCarId = (element) => setCarId(element.target.value);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const submitReservation = (e) => {
     e.preventDefault();
-    history.push('/reservations');
+    navigate('/reservations');
     window.location.reload(true);
     const reserve = {
       user_id: user.id,
-      car_id,
+      car_id: carId,
       pick_up_day,
       return_day,
       pick_up_city,
@@ -39,11 +37,11 @@ const Reserve = () => {
     };
 
     dispatch(addReservationToAPI(reserve));
+
     setPickUpDay('');
     setReturnDay('');
     setPickUpCity('');
     setReturnCity('');
-    setCarId('');
   };
 
   return (
@@ -119,18 +117,6 @@ const Reserve = () => {
             <option value="Oslo">Oslo</option>
             <option value="Barcelona">Barcelona</option>
           </select>
-          <select
-            className="reservation-car-name"
-            name="reservation-car-name"
-            id="reservation-car-name"
-            value={car_id}
-            onChange={ChangeCarId}
-          >
-            <option value="" selected disabled hidden>Name</option>
-            {carsArr.map((car) => (
-              <option key={car.id} value={car.id}>{car.carName}</option>))}
-          </select>
-
         </div>
         <div className="reservation-button-container">
           <button className="add-reservation-btn" type="submit">
@@ -141,4 +127,4 @@ const Reserve = () => {
     </section>
   );
 };
-export default Reserve;
+export default AddReservation;

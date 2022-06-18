@@ -13,8 +13,8 @@ const Logout = ({ dispatchLogoutUser }) => {
   };
 
   return (
-    <button type="button" className="p-4" onClick={handleClick}>
-      LOGOUT
+    <button type="button" className="logout" onClick={handleClick}>
+      <h4>LOGOUT</h4>
     </button>
   );
 };
