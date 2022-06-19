@@ -8,6 +8,7 @@ import Reserve from './pages/reservations/Reserve';
 import Reservations from './pages/reservations/Reservations';
 import DeleteCar from './pages/DeleteCar';
 import withAuth from './components/auth/withAuth';
+import CarDetails from './pages/CarDetails/CarDetails';
 import './App.css';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/reserve" component={withAuth(Reserve)} />
           <Route path="/reservations" component={withAuth(Reservations)} />
           <Route path="/delete" component={withAuth(DeleteCar)} />
+          <Route path="/CarDetails" component={withAuth(CarDetails)} />
         </Switch>
       </Router>
     </div>
