@@ -2,11 +2,12 @@ import { React, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import SingleReservation from './SingleReservation';
 import Sidebar from '../../components/navigation/Sidebar';
+import Hamburger from '../../components/navigation/Hamburger';
 import { getReservationsFromAPi } from '../../redux/reducers/reservations/reservations';
 import './reservations.css';
 
 function Reservations() {
-  const reservations = useSelector((state) => state.reservationsReducer);
+  const reservations = useSelector((state) => state.reserve);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,6 +15,7 @@ function Reservations() {
   }, [dispatch]);
   return (
     <section className="my-reservations">
+      <Hamburger />
       <div className="navbar">
         <Sidebar />
       </div>

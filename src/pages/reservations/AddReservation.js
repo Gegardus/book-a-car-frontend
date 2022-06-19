@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TiArrowBackOutline } from 'react-icons/ti';
 import { checkAuth } from '../../actions/auth';
 import { addReservationToAPI } from '../../redux/reducers/reservations/reservations';
+import Hamburger from '../../components/navigation/Hamburger';
 import './addreservation.css';
 
 const AddReservation = () => {
   const user = useSelector(checkAuth);
-  const carId = useSelector((state) => state.carIdReducer);
+  const carId = useSelector((state) => state.carId);
 
   const [pick_up_day, setPickUpDay] = useState('');
   const [return_day, setReturnDay] = useState('');
@@ -46,6 +47,7 @@ const AddReservation = () => {
 
   return (
     <section className="form-wrapper">
+      <Hamburger />
       <div className="back">
         <NavLink to="/" exact="true">
           <TiArrowBackOutline className="back-button" />

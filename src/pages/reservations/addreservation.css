@@ -1,6 +1,11 @@
 @import url('http://fonts.cdnfonts.com/css/cocogoose');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&display=swap');
 
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .form-wrapper {
   height: 100vh;
   background-image:
@@ -10,6 +15,12 @@
   background-repeat: no-repeat;
   margin: 0;
   padding: 0;
+}
+
+.back {
+  color: #fff;
+  padding: 20px;
+  font-size: 30px;
 }
 
 .add-reservation-title {
@@ -140,4 +151,72 @@ select:focus {
 
 ::placeholder {
   color: #fff;
+}
+
+@media screen and (max-width: 1025px) {
+  .back {
+    display: none;
+  }
+
+  .add-reservation-title {
+    font-size: 27px;
+    font-family: 'Cocogoose', sans-serif;
+    letter-spacing: 5px;
+    color: #fff;
+    text-align: center;
+    padding-top: 17vh;
+  }
+
+  .reservation-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reservations-text h3 {
+    font-size: 22px;
+  }
+
+  .reservations-text h5 {
+    display: none;
+  }
+
+  input[type='date'] {
+    padding: 5px 15px;
+  }
+
+  select {
+    padding: 8px 57px;
+  }
+
+  .reservation-car-name {
+    padding: 8px 45px;
+  }
+
+  .add-reservation-btn {
+    background: #fff;
+    color: rgb(152, 192, 42);
+    border-radius: 30px;
+    border: none;
+    padding: 7px 29px;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .back {
+    display: none;
+  }
+
+  .reservation-description {
+    display: none;
+  }
+
+  .add-reservation-title {
+    font-size: 20px;
+  }
 }

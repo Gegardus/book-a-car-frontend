@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TiArrowBackOutline } from 'react-icons/ti';
 import { checkAuth } from '../../actions/auth';
 import { addReservationToAPI } from '../../redux/reducers/reservations/reservations';
+import Hamburger from '../../components/navigation/Hamburger';
 import './addreservation.css';
 
 const Reserve = () => {
   const user = useSelector(checkAuth);
-  const carsArr = useSelector((state) => state.reducerCars);
+  const carsArr = useSelector((state) => state.cars);
 
   const [pick_up_day, setPickUpDay] = useState('');
   const [return_day, setReturnDay] = useState('');
@@ -48,8 +49,9 @@ const Reserve = () => {
 
   return (
     <section className="form-wrapper">
+      <Hamburger />
       <div className="back">
-        <NavLink to="/" exact="true">
+        <NavLink to="/home" exact="true">
           <TiArrowBackOutline className="back-button" />
         </NavLink>
       </div>
@@ -67,14 +69,14 @@ const Reserve = () => {
             value={pick_up_day}
             onChange={ChangePickUpDay}
             type="date"
-            placeholder="Car name"
+            placeholder="pick up day"
             required
           />
           <input
             value={return_day}
             onChange={ChangeReturnDay}
             type="date"
-            placeholder="Seats"
+            placeholder="return day"
             required
           />
 
@@ -106,7 +108,7 @@ const Reserve = () => {
             name="return-city"
             id="return-city"
           >
-            <option value="drop_off_city" selected disabled hidden>
+            <option value="" selected disabled hidden>
               Return City
             </option>
             <option value="Palermo">Palermo</option>
@@ -126,9 +128,9 @@ const Reserve = () => {
             value={car_id}
             onChange={ChangeCarId}
           >
-            <option value="" selected disabled hidden>Name</option>
+            <option value="" selected disabled hidden>Model</option>
             {carsArr.map((car) => (
-              <option key={car.id} value={car.id}>{car.carName}</option>))}
+              <option key={car.id} value={car.id}>{car.carModel}</option>))}
           </select>
 
         </div>

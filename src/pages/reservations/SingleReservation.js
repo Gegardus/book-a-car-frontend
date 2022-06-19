@@ -8,26 +8,25 @@ import DaysOfRental from './Count';
 const SingleReservation = (props) => {
   const { reservation } = props;
   const dispatch = useDispatch();
-  const cars = useSelector((state) => state.reducerCars);
-
+  const cars = useSelector((state) => state.cars);
   const totalPriceOfRental = (id) => {
     let total = 0;
     cars.forEach((car) => {
       if (car.id === id) {
-        total += DaysOfRental(reservation.pick_up_day, reservation.return_day) * car.price_per_day;
+        total += DaysOfRental(reservation.pick_up_day, reservation.return_day) * car.rentPrice;
       }
     });
     return total;
   };
 
-  const getCarName = (id) => {
-    let carName = '';
+  const getCarModel = (id) => {
+    let carModel = '';
     cars.forEach((car) => {
       if (car.id === id) {
-        carName = car.carName;
+        carModel = car.carModel;
       }
     });
-    return carName;
+    return carModel;
   };
 
   const [name, setName] = useState('');
@@ -56,7 +55,7 @@ const SingleReservation = (props) => {
           <th>Total Price</th>
         </tr>
         <tr>
-          <td>{getCarName(reservation.car_id)}</td>
+          <td>{getCarModel(reservation.car_id)}</td>
           <td>{name}</td>
           <td>{reservation.pick_up_day}</td>
           <td>{reservation.return_day}</td>

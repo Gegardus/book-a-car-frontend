@@ -55,7 +55,7 @@ export const deleteReservationFromApi = (id) => async (dispatch) => {
   dispatch(deleteReservation(id));
 };
 
-export const reservationsReducer = (state = initialState, action) => {
+const reservationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_RESERVATION:
       return [...state, action.payload];
@@ -67,3 +67,4 @@ export const reservationsReducer = (state = initialState, action) => {
       return state;
   }
 };
+export default reservationsReducer;
