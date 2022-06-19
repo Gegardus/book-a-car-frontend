@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { RiArrowLeftSFill } from 'react-icons/ri';
+import { RiArrowLeftSFill, RiArrowRightSFill } from 'react-icons/ri';
 import { getCarsFromAPI } from '../../redux/reducers/cars';
 import style from './Detail.module.css';
 
@@ -20,7 +20,7 @@ const CarDetails = () => {
     }
 
     if (cars && carId) {
-      const newData = cars.find((car) => car.model_type === carId.id);
+      const newData = cars.find((car) => car.car_model === carId.id);
       setDisplayCar(newData);
     }
   });
@@ -38,15 +38,55 @@ const CarDetails = () => {
             }}
           >
             <button type="button" className={style.home}>
-              left
-              <RiArrowLeftSFill color="danger" sx={{ fontSize: 50 }} />
+              <RiArrowLeftSFill color="danger" style={{ fontSize: 50 }} />
             </button>
           </Link>
+        </div>
+        <div className={style.show_content}>
+          <div className={style.show_header}>
+            <h2>{displayCar.carModel}</h2>
+            <p>-$200 deposit upon any Rental Purchase!</p>
+          </div>
+          <div className={style.show_detail}>
+            <div className={style.car_details}>
+              <p className={style.details}>
+                {displayCar.carDescription}
+              </p>
+            </div>
+            <div className={style.car_detail}>
+              <p className={style.details}>Rent daily cost</p>
+              <p className={style.details}>
+                $
+                {displayCar.rentPrice}
+              </p>
+            </div>
+            <div className={style.car_details}>
+              <p className={style.details}>Car type</p>
+              <p className={style.details}>
+                {displayCar.carType}
+              </p>
+            </div>
+            <div className={style.car_details}>
+              <p className={style.details}>Transmission</p>
+              <p className={style.details}>
+                {displayCar.carTransmission}
+              </p>
+            </div>
+          </div>
+          <div className={style.more_cars}>
+            <Link
+              to={{
+                pathname: '/home',
+              }}
+            >
+              <span>Discover More Cars</span>
+              <RiArrowRightSFill color="success" style={{ fontSize: 40 }} />
+            </Link>
+          </div>
         </div>
       </section>
     );
   }
-
   return (
     <div className={style.car}>
       <h1>Loading...</h1>
