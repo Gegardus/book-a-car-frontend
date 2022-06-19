@@ -1,5 +1,3 @@
-// const CARS_URL = 'https://rent-a-car-backend-dejan.herokuapp.com/api/v1';
-const CARS_URL = 'http://127.0.0.1:3001';
 const GET_CARS = 'carStore/cars/GET_CARS';
 
 const initialState = [];
@@ -10,7 +8,7 @@ export const getCars = (payload) => ({
 });
 
 export const getCarsFromAPI = () => async (storing) => {
-  const result = await fetch(`${CARS_URL}/cars/`, {
+  const result = await fetch('http://localhost:3001/api/v1/cars', {
     headers: {
       'Content-Type': 'application/json',
       Authorization: localStorage.getItem('token'),
