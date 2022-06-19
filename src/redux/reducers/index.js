@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import authReducer from './auth';
-import { reservationsReducer } from './reservations/reservations';
+import carsReducer from './cars';
 
 export default combineReducers({
   auth: authReducer,
-  reservationsReducer,
+  cars: carsReducer,
 });
