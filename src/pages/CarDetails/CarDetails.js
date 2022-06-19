@@ -30,7 +30,7 @@ const CarDetails = () => {
       <section className={style.show_container}>
         <div className={style.show_img}>
           <div className={style.img_div}>
-            <img alt="house" src={displayCar.carImg} />
+            <img alt="Car" src={displayCar.carImg} />
           </div>
           <Link
             to={{
@@ -83,6 +83,17 @@ const CarDetails = () => {
               <RiArrowRightSFill color="success" style={{ fontSize: 40 }} />
             </Link>
           </div>
+          <Link
+            to={{
+              pathname: `/reserve/${displayCar.id}`,
+            }}
+            data={displayCar}
+            className={style.btn_container}
+          >
+            <button type="button" className={style.btn}>
+              Reserve
+            </button>
+          </Link>
         </div>
       </section>
     );
