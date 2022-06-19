@@ -11,11 +11,11 @@ function classNames(...classes) {
 }
 
 const menuItems = [
-  { name: 'Cars', path: '/' },
-  { name: 'Reserve', path: '/' },
-  { name: 'My reservations', path: '/' },
+  { name: 'Cars', path: '/home' },
+  { name: 'Reserve', path: '/reserve' },
+  { name: 'My reservations', path: '/reservations' },
   { name: 'Add car', path: '/' },
-  { name: 'Delete car', path: '/' },
+  { name: 'Delete car', path: '/delete' },
 ];
 
 const social = [

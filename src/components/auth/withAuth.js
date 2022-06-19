@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { checkAuth } from '../../actions/auth';
 import LoadingSpinner from '../LoadingSpinner';
-import Login from '../../pages/splashcreen/Login';
+import Splash from '../../pages/splashcreen/SplashScreen';
 
 const withAuth = (WrappedComponent) => {
   class Wrapper extends React.Component {
@@ -19,8 +19,8 @@ const withAuth = (WrappedComponent) => {
       } if (!this.props.loggedIn) {
         return (
           <>
-            <p className="w-11/12 max-w-2xl mx-auto my-4 text-red-500">You need to login to view this page.</p>
-            <Login />
+            <p className="w-11/12 max-w-2xl mx-auto my-4 text-red-500 text-center">You need to login to view this page.</p>
+            <Splash />
           </>
         );
       }

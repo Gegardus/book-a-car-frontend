@@ -26,11 +26,14 @@
 }
 
 .logout {
-  font-size: 14px;
+  padding: 10px;
 }
 
-.logout:hover {
-  background-color: rgb(152, 192, 42);
-  padding: 18px 70px;
-  color: #fff;
+.logout h4 {
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.logout h4:hover {
+  color: rgb(223, 53, 41);
 }
