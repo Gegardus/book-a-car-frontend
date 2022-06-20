@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import CarDetails from '../../../pages/CarDetails/CarDetails';
 import store from '../../../redux/configureStore';
 
-it('should render CarDetails correctly', () => {
+it('should render CarDetails component correctly', () => {
   const tree = renderer.create(
     <Provider store={store}>
       <Router>
