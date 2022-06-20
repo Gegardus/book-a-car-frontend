@@ -1,12 +1,30 @@
 // import React, { useState, useEffect } from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { RiArrowLeftSFill, RiArrowRightSFill } from 'react-icons/ri';
 import { getCarsFromAPI } from '../../redux/reducers/cars';
-import style from './Detail.module.css';
+import style from './Detail.module.scss';
 
 const CarDetails = () => {
+  // const [displayCar, setDisplayCar] = useState({});
+  // const carId = useParams();
+  // const fetchCar = async () => {
+  //   const res = await fetch(`http://localhost:3001/v1/cars/${carId}`, {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Authorization: localStorage.getItem('token'),
+  //     },
+  //   });
+  //   const data = await res.json();
+  //   setDisplayCar(data);
+  // };
+  // useEffect(() => {
+  //   fetchCar();
+  // }, []);
+
+  // ----------------------
+
   const cars = useSelector((state) => state.cars);
   const carId = useParams();
   const dispatch = useDispatch();
@@ -20,7 +38,7 @@ const CarDetails = () => {
     }
 
     if (cars && carId) {
-      const newData = cars.find((car) => car.car_model === carId.id);
+      const newData = cars.find((car) => car.car_model === carId.carModel);
       setDisplayCar(newData);
     }
   });
@@ -32,22 +50,25 @@ const CarDetails = () => {
           <div className={style.img_div}>
             <img alt="Car" src={displayCar.carImg} />
           </div>
-          <Link
+          <NavLink
             to={{
               pathname: '/home',
             }}
+            className={style.btn_home}
           >
             <button type="button" className={style.home}>
               <RiArrowLeftSFill color="danger" style={{ fontSize: 50 }} />
             </button>
-          </Link>
+          </NavLink>
         </div>
+
         <div className={style.show_content}>
           <div className={style.show_header}>
             <h2>{displayCar.carModel}</h2>
             <p>-$200 deposit upon any Rental Purchase!</p>
           </div>
-          <div className={style.show_detail}>
+
+          <div className={style.show_details}>
             <div className={style.car_details}>
               <p className={style.details}>
                 {displayCar.carDescription}
@@ -66,7 +87,7 @@ const CarDetails = () => {
                 {displayCar.carType}
               </p>
             </div>
-            <div className={style.car_details}>
+            <div className={style.car_detail}>
               <p className={style.details}>Transmission</p>
               <p className={style.details}>
                 {displayCar.carTransmission}
@@ -74,16 +95,17 @@ const CarDetails = () => {
             </div>
           </div>
           <div className={style.more_cars}>
-            <Link
+            <NavLink
               to={{
                 pathname: '/home',
               }}
+              className={style.d_flex}
             >
-              <span>Discover More Cars</span>
-              <RiArrowRightSFill color="success" style={{ fontSize: 40 }} />
-            </Link>
+              <span style={{ fontSize: 20 }}>DISCOVER MORE CARS</span>
+              <RiArrowRightSFill color="success" style={{ fontSize: 40, padding: 0 }} />
+            </NavLink>
           </div>
-          <Link
+          <NavLink
             to={{
               pathname: `/reserve/${displayCar.id}`,
             }}
@@ -93,7 +115,7 @@ const CarDetails = () => {
             <button type="button" className={style.btn}>
               Reserve
             </button>
-          </Link>
+          </NavLink>
         </div>
       </section>
     );
