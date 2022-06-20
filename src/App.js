@@ -6,7 +6,7 @@ import Splash from './pages/splashcreen/SplashScreen';
 import Home from './pages/Home';
 import Reserve from './pages/reservations/Reserve';
 import Reservations from './pages/reservations/Reservations';
-import DeleteCar from './pages/DeleteCar';
+import DeleteCar from './pages/DeletePage/DeleteCar';
 import withAuth from './components/auth/withAuth';
 import './App.css';
 
