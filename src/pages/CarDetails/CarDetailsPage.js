@@ -6,8 +6,12 @@ import style from './Detail.module.scss';
 
 const CarDetailsPage = () => (
   <section className={style.car_details_page}>
-    <Hamburger />
-    <Sidebar />
+    <div className={style.header}>
+      <Hamburger />
+    </div>
+    <div className={style.sidebar}>
+      <Sidebar />
+    </div>
     <CarDetails />
   </section>
 );

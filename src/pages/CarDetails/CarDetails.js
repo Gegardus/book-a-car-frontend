@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
-import { RiArrowLeftSFill, RiArrowRightSFill } from 'react-icons/ri';
+import { RiArrowRightSFill } from 'react-icons/ri';
+// import { RiArrowLeftSFill, RiArrowRightSFill } from 'react-icons/ri';
 import { getCarsFromAPI } from '../../redux/reducers/cars';
 import style from './Detail.module.scss';
 
@@ -50,16 +51,6 @@ const CarDetails = () => {
           <div className={style.img_div}>
             <img alt="Car" src={displayCar.carImg} />
           </div>
-          <NavLink
-            to={{
-              pathname: '/home',
-            }}
-            className={style.btn_home}
-          >
-            <button type="button" className={style.home}>
-              <RiArrowLeftSFill color="danger" style={{ fontSize: 50 }} />
-            </button>
-          </NavLink>
         </div>
 
         <div className={style.show_content}>
