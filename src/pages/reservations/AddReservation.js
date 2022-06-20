@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { useState } from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiArrowBackOutline } from 'react-icons/ti';
 import { checkAuth } from '../../actions/auth';
@@ -22,11 +22,11 @@ const AddReservation = () => {
   const ChangePickUpCity = (element) => setPickUpCity(element.target.value);
   const ChangeReturnCity = (element) => setReturnCity(element.target.value);
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const submitReservation = (e) => {
     e.preventDefault();
-    navigate('/reservations');
+    history.push('/reservations');
     window.location.reload(true);
     const reserve = {
       user_id: user.id,
