@@ -28,7 +28,7 @@ function App() {
           <Route path="/reserve" component={withAuth(Reserve)} />
           <Route path="/add_reservations" component={withAuth(AddReservation)} />
           <Route path="/reservations" component={withAuth(Reservations)} />
-          <Route path="/add" component={withAuth(AddCar)} />
+          <Route path="/add_car" component={withAuth(AddCar)} />
           <Route path="/delete" component={withAuth(DeleteCar)} />
           <Route path="/CarDetails/:Id" component={withAuth(CarDetailsPage)} />
         </Switch>
