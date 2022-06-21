@@ -31,7 +31,7 @@ const SingleReservation = (props) => {
 
   const [name, setName] = useState('');
   useEffect(() => {
-    Axios.get('http://localhost:3001/current_user', {
+    Axios.get('https://final-capstone-back.herokuapp.com/current_user', {
       headers: {
         'Content-Type': 'application/json',
         Authorization: localStorage.getItem('token'),
