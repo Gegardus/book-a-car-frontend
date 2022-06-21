@@ -19,15 +19,12 @@ const DeleteCar = () => {
       <div className="navbar">
         <Sidebar />
       </div>
-      <div>
-        <div className="header">
-          <h1>Delete Items</h1>
-        </div>
+      <div className="delete-container">
         {cars.map((car) => (
-          <div key={car.id}>
-            <img src={car.carImg} alt="delete" />
-            <div>{car.carModel}</div>
-            <button onClick={() => handleDelete(car.id)} type="button">
+          <div key={car.id} className="contain">
+            <img className="img" src={car.carImg} alt="delete" />
+            <div className="model">{car.carModel}</div>
+            <button className="delete-btn" onClick={() => handleDelete(car.id)} type="button">
               Delete
             </button>
           </div>
