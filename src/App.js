@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Reserve from './pages/reservations/Reserve';
 import AddReservation from './pages/reservations/AddReservation';
 import Reservations from './pages/reservations/Reservations';
+import AddCar from './components/cars/AddCar';
 import DeleteCar from './pages/DeletePage/DeleteCar';
 import withAuth from './components/auth/withAuth';
 import CarDetailsPage from './pages/CarDetails/CarDetailsPage';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/reserve" component={withAuth(Reserve)} />
           <Route path="/add_reservations" component={withAuth(AddReservation)} />
           <Route path="/reservations" component={withAuth(Reservations)} />
+          <Route path="/add" component={withAuth(AddCar)} />
           <Route path="/delete" component={withAuth(DeleteCar)} />
           <Route path="/CarDetails/:Id" component={withAuth(CarDetailsPage)} />
         </Switch>
