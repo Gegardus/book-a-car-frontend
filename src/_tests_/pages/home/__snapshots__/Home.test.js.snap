@@ -67,7 +67,7 @@ exports[`should render Sidebar correctly 1`] = `
               </a>
               <a
                 className="text-slate-900 hover:bg-lime-200 group flex items-center pl-5 py-3 hover:text-slate-900"
-                href="#"
+                href="add"
               >
                 Add car
               </a>

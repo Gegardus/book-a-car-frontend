@@ -1,6 +1,7 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
@@ -14,8 +15,12 @@ const navigation = [
   { name: 'Cars', href: '/home', current: true },
   { name: 'Reserve', href: 'reserve', current: false },
   { name: 'My reservations', href: '/reservations', current: false },
+
   { name: 'Add car', href: '#', current: false },
+
+  { name: 'Add car', href: 'add', current: false },
   { name: 'Delete car', href: 'delete', current: false },
+
 ];
 
 const social = [
@@ -60,16 +65,32 @@ const Sidebar = ({ currentUser }) => (
               {item.name}
             </a>
           ))}
-          <span className="logout">
-            <Logout />
-          </span>
+          <div className="nav-column">
+            <NavLink
+              to="/add_car"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
+              <p>ADD CAR</p>
+            </NavLink>
+
+            <NavLink
+              to="/delete"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
+              <p>DELETE CAR</p>
+            </NavLink>
+
+            <span className="logout">
+              <Logout />
+            </span>
+          </div>
         </div>
       </nav>
     </div>
     <div className="flex-shrink-0 flex-200 p-4">
       <div className="flex gap-2">
         {social.map((item) => (
-          <a href="/" key={item.icon}>
+          <a href="/home" key={item.icon}>
             <img src={item.icon} alt="social-icon" className="w-6" />
           </a>
         ))}

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
 import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
+import Logout from '../auth/Logout';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -14,8 +16,8 @@ const menuItems = [
   { name: 'Cars', path: '/home' },
   { name: 'Reserve', path: '/reserve' },
   { name: 'My reservations', path: '/reservations' },
-  { name: 'Add car', path: '/' },
-  { name: 'Delete car', path: '/delete' },
+  // { name: 'Add car', path: '/' },
+  // { name: 'Delete car', path: '/delete' },
 ];
 
 const social = [
@@ -53,6 +55,25 @@ const Hamburger = () => {
               ))
             }
           </ul>
+          <div className="hamburger-column">
+            <NavLink
+              to="/add_car"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
+              <p>ADD CAR</p>
+            </NavLink>
+
+            <NavLink
+              to="/delete"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
+              <p>DELETE CAR</p>
+            </NavLink>
+
+            <span className="logout">
+              <Logout />
+            </span>
+          </div>
         </div>
       </nav>
       <div className={classNames(mobileMenu ? 'block' : 'hidden', 'flex flex-col items-center mt-32')}>
