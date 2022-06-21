@@ -1,3 +1,4 @@
+const CREATE_CAR = 'carStore/cars/CREATE_CARS';
 const GET_CARS = 'carStore/cars/GET_CARS';
 
 const initialState = [];
@@ -6,6 +7,25 @@ export const getCars = (payload) => ({
   type: GET_CARS,
   payload,
 });
+
+export const createCar = (payload) => ({
+  type: CREATE_CAR,
+  payload,
+});
+
+export const addCarToAPI = (payload) => async (dispatch) => {
+  const token = localStorage.getItem('token');
+  const response = await fetch('http://localhost:3001/api/v1/cars', {
+    method: 'POST',
+    headers: {
+      Authorization: `${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  const data = await response.json();
+  dispatch(createCar(data));
+};
 
 export const getCarsFromAPI = () => async (storing) => {
   const result = await fetch('http://localhost:3001/api/v1/cars', {
@@ -35,6 +55,8 @@ const carsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CARS:
       return [...action.payload];
+    case CREATE_CAR:
+      return [...state, action.payload];
     default:
       return state;
   }
