@@ -14,7 +14,7 @@ const navigation = [
   { name: 'Cars', href: '/home', current: true },
   { name: 'Reserve', href: 'reserve', current: false },
   { name: 'My reservations', href: '/reservations', current: false },
-  { name: 'Add car', href: '#', current: false },
+  { name: 'Add car', href: 'add', current: false },
   { name: 'Delete car', href: 'delete', current: false },
 ];
 
