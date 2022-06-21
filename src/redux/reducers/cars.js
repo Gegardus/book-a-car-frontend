@@ -1,5 +1,6 @@
 const CREATE_CAR = 'carStore/cars/CREATE_CARS';
 const GET_CARS = 'carStore/cars/GET_CARS';
+const DELETE_CAR = 'carStore/ca/DELETE_CAR';
 
 const initialState = [];
 
@@ -50,6 +51,24 @@ export const getCarsFromAPI = () => async (storing) => {
   storing(getCars(cars));
 };
 
+export const removeCar = (payload) => ({
+  type: DELETE_CAR,
+  payload,
+});
+
+export const removeCarFromAPI = (id) => async (dispatch) => (
+  fetch(`http://localhost:3001/api/v1/cars/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: localStorage.getItem('token'),
+    },
+    method: 'DELETE',
+  })
+    .then((response) => response.json())
+    .then(dispatch(removeCar(id)))
+
+);
+
 // reducer
 
 const carsReducer = (state = initialState, action) => {
@@ -58,6 +77,8 @@ const carsReducer = (state = initialState, action) => {
       return [...action.payload];
     case CREATE_CAR:
       return [...action.payload];
+    case DELETE_CAR:
+      return state.filter((car) => car.id !== action.payload);
     default:
       return state;
   }
