@@ -122,7 +122,7 @@ const AddCar = () => {
               name="return-city"
               id="return-city"
             >
-              <option value="car_transmission" selected disabled hidden>
+              <option value="" selected disabled hidden>
                 Car Transmission
               </option>
               <option value="automatic">Automatic</option>
