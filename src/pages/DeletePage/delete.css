@@ -1,11 +1,14 @@
+.Delete-page {
+  display: flex;
+}
+
 .delete-container {
   width: 80%;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-top: 16%;
+  padding-right: 20%;
 }
 
 .img {
