@@ -6,6 +6,7 @@ import Splash from './pages/splashcreen/SplashScreen';
 import Home from './pages/Home';
 import Reserve from './pages/reservations/Reserve';
 import Reservations from './pages/reservations/Reservations';
+import AddCar from './components/cars/AddCar';
 import DeleteCar from './pages/DeleteCar';
 import withAuth from './components/auth/withAuth';
 import './App.css';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/home" component={withAuth(Home)} />
           <Route path="/reserve" component={withAuth(Reserve)} />
           <Route path="/reservations" component={withAuth(Reservations)} />
+          <Route path="/add" component={withAuth(AddCar)} />
           <Route path="/delete" component={withAuth(DeleteCar)} />
         </Switch>
       </Router>
