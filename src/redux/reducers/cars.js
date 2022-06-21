@@ -13,18 +13,19 @@ export const createCar = (payload) => ({
   payload,
 });
 
-export const addCarToAPI = (payload) => async (dispatch) => {
-  const token = localStorage.getItem('token');
+export const addCarToAPI = (car) => async (adding) => {
   const response = await fetch('http://localhost:3001/api/v1/cars', {
     method: 'POST',
+    body: JSON.stringify(car),
     headers: {
-      Authorization: `${token}`,
       'Content-Type': 'application/json',
+      Authorization: localStorage.getItem('token'),
     },
-    body: JSON.stringify(payload),
   });
-  const data = await response.json();
-  dispatch(createCar(data));
+
+  if (response.ok) {
+    adding(createCar(car));
+  }
 };
 
 export const getCarsFromAPI = () => async (storing) => {
@@ -56,7 +57,7 @@ const carsReducer = (state = initialState, action) => {
     case GET_CARS:
       return [...action.payload];
     case CREATE_CAR:
-      return [...state, action.payload];
+      return [...action.payload];
     default:
       return state;
   }
