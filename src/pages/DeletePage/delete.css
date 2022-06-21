@@ -2,11 +2,9 @@ body {
   overflow-y: scroll;
 }
 
-.Delete-page {
-  display: flex;
-}
-
-.header {
+.title {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+  color: rgb(146, 141, 141);
+  font-weight: 500;  
 }

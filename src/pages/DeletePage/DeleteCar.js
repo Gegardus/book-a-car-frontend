@@ -14,26 +14,31 @@ const DeleteCar = () => {
   };
 
   return (
-    <section className="Delete-page">
-      <Hamburger />
-      <div className="navbar">
-        <Sidebar />
-      </div>
-      <div>
-        <div className="header">
-          <h1>Delete Items</h1>
+    <div className="homepage">
+      <div className="h-screen flex bg-white">
+        <div className="hidden lg:flex lg:flex-shrink-0">
+          <Sidebar />
         </div>
-        {cars.map((car) => (
-          <div key={car.id}>
-            <img src={car.carImg} alt="delete" />
-            <div>{car.carModel}</div>
-            <button onClick={() => handleDelete(car.id)} type="button">
-              Delete
-            </button>
+        <div className="flex flex-col min-w-0 flex-1 mt-32 lg:mt-1">
+          {/* Hamburger for mobile */}
+          <Hamburger />
+          <div className="flex flex-col items-center">
+            <h1 className="title">Remove car</h1>
           </div>
-        ))}
+          {cars.map((car) => (
+            <div key={car.id}>
+              <img src={car.carImg} alt="delete" />
+              <div className="flex inline justify-center space-x-1 font-serif text-lg">
+                <button className="bg-yellow-300 text-black p-1 rounded-md" onClick={() => handleDelete(car.id)} type="button">
+                  Remove
+                </button>
+                <div className="bg-green-500 text-white p-1 rounded-md font-semibold">{car.carModel}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
