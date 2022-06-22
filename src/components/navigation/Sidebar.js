@@ -1,4 +1,5 @@
 /* eslint-disable arrow-body-style */
+/* eslint-disable no-confusing-arrow */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
@@ -17,10 +18,6 @@ const social = [
   { icon: linkedin },
   { icon: github },
 ];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
 
 const Sidebar = ({ currentUser }) => {
   return (

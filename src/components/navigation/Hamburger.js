@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
@@ -27,7 +29,7 @@ const social = [
   { icon: github },
 ];
 
-const Hamburger = ( {currentUser} ) => {
+const Hamburger = ({ currentUser }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   return (
     <header
