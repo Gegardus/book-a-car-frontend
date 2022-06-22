@@ -20,8 +20,7 @@
 <a href="https://github.com/Gegardus/book-a-car-frontend#readme"><strong>Explore the docs »</strong></a>
 <br />
 <br />
-<a href="">View Demo</a>
-·
+.
 <a href="https://github.com/Gegardus/book-a-car-frontend/issues">Report Bug</a>
 ·
 <a href="https://github.com/Gegardus/book-a-car-frontend/issues">Request Feature</a>
