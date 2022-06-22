@@ -58,9 +58,7 @@ const Sidebar = ({ currentUser }) => {
               {currentUser.role === 'admin' && (
                 <NavLink
                   to="/add_car"
-                  className={({ isActive }) =>
-                    isActive ? 'active' : 'inactive'
-                  }
+                  className={({ isActive }) => isActive ? 'active' : 'inactive'}
                 >
                   <p>ADD CAR</p>
                 </NavLink>
@@ -69,9 +67,7 @@ const Sidebar = ({ currentUser }) => {
               {currentUser.role === 'admin' && (
                 <NavLink
                   to="/delete"
-                  className={({ isActive }) =>
-                    isActive ? 'active' : 'inactive'
-                  }
+                  className={({ isActive }) =>isActive ? 'active' : 'inactive'}
                 >
                   <p>DELETE CAR</p>
                 </NavLink>
