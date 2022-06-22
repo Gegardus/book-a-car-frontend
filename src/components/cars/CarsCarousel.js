@@ -27,7 +27,7 @@ const CarsCarousel = () => {
   return (
     <div className="flex flex-col gap-4 mt-16 lg:flex-row">
       {displayCars.map((item) => (
-        <div className="flex flex-col items-center w-80 bg-green-200" key={item.id}>
+        <div className="flex flex-col items-center w-80" key={item.id}>
           <Link to={`/CarDetails/${item.id}`}>
             <img src={item.carImg} alt="car" className="car rounded-full w-60 h-60 m-auto blob" />
             <h2 className="text-center">{item.carModel}</h2>
