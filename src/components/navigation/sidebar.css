@@ -54,3 +54,7 @@
 .nav-column a:hover {
   background-color: rgb(220, 238, 157);
 }
+
+.active {
+  background-color: rgb(152, 192, 42);
+}
