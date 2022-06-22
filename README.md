@@ -64,6 +64,9 @@
 ##  Screenshots
 ![Screenshot](src/img/screenshot.png)
 
+## Live Link
+![Live](https://rent-car-service.netlify.app)
+
 ## Description 🏗️
 This is a car rental website that allows you to view  a variety of cars and book them at different rates. User can see all models and model details and rerve car. Admin can add and delete car.
 
