@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { MenuIcon, XIcon } from '@heroicons/react/solid'
+import { MenuIcon, XIcon } from '@heroicons/react/solid';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
@@ -27,8 +27,7 @@ const social = [
   { icon: github },
 ];
 
-const Hamburger = ( { currentUser } ) => {
-
+const Hamburger = ( {currentUser} ) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   return (
     <header
@@ -113,9 +112,10 @@ const Hamburger = ( { currentUser } ) => {
       </div>
     </header>
   );
-
 };
+
 const mapStateToProps = ({ auth: { currentUser } }) => {
   return { currentUser };
-}
+};
+
 export default connect(mapStateToProps)(Hamburger);

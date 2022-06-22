@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getCarsFromAPI } from './redux/reducers/cars';
@@ -14,7 +13,7 @@ import withAuth from './components/auth/withAuth';
 import CarDetailsPage from './pages/CarDetails/CarDetailsPage';
 import './App.css';
 
-function App( {currentUser } ) {
+function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCarsFromAPI());
@@ -29,12 +28,7 @@ function App( {currentUser } ) {
           <Route path="/reserve" component={withAuth(Reserve)} />
           <Route path="/add_reservations" component={withAuth(AddReservation)} />
           <Route path="/reservations" component={withAuth(Reservations)} />
-          {currentUser.role === 'admin' && (
-            <Route path="/add_car" component={withAuth(AddCar)} />
-          )}
-          {currentUser.role === 'admin' && (
-            <Route path="/delete" component={withAuth(DeleteCar)} />
-          )}
+          <Route path="/delete" component={withAuth(DeleteCar)} />
           <Route path="/CarDetails/:Id" component={withAuth(CarDetailsPage)} />
         </Switch>
       </Router>
@@ -46,4 +40,4 @@ const mapStateToProps = ({ auth: { currentUser } }) => {
   return { currentUser };
 };
 
-export default connect(mapStateToProps)(App);
+export default App;
