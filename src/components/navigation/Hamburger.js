@@ -8,6 +8,7 @@ import facebook from '../../assets/images/facebook-icon.png';
 import linkedin from '../../assets/images/linkedin-icon.png';
 import github from '../../assets/images/github-icon.png';
 import Logout from '../auth/Logout';
+import './hamburger.css';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

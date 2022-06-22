@@ -116,11 +116,11 @@ const AddCar = () => {
             />
 
             <select
-              className="return-city"
+              className="transmission"
               value={transmission}
               onChange={ChangeTransmission}
-              name="return-city"
-              id="return-city"
+              name="transmisson"
+              id="transmission"
             >
               <option value="" selected disabled hidden>
                 Car Transmission
@@ -140,7 +140,7 @@ const AddCar = () => {
         </div>
 
         <div className="reservation-button-container">
-          <button className="add-reservation-btn" type="submit">
+          <button className="add-car-btn" type="submit">
             Add Car
           </button>
         </div>

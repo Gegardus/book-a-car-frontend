@@ -14,7 +14,7 @@ const Home = () => (
         {/* Mobile */}
         <Hamburger />
         <div className="flex flex-col items-center w-screen lg:mt-14 lg:pr-44">
-          <h1 className="text-3xl text-slate-900 uppercase font-bold">LATEST MODELS</h1>
+          <h1 className="text-3xl text-slate-900 uppercase font-bold text-center">LATEST MODELS</h1>
           <p className="text-gray-500 mt-1 text-lg">Please select a Car Model</p>
         </div>
         <div className="bg-green-10 flex flex-col items-center">

@@ -46,7 +46,7 @@
 
 input[type='text'] {
   background: rgb(152, 192, 42);
-  color: rgb(243, 237, 237);
+  color: #fff;
   border-radius: 30px;
   font-size: 17px;
   font-weight: 800;
@@ -57,7 +57,7 @@ input[type='text'] {
 
 input[type='number'] {
   background: rgb(152, 192, 42);
-  color: rgb(252, 249, 249);
+  color: #fff;
   border-radius: 30px;
   font-size: 17px;
   font-weight: 800;
@@ -68,8 +68,8 @@ input[type='number'] {
 
 input[type='url'] {
   background: rgb(152, 192, 42);
-  color: rgb(223, 213, 213);
   border-radius: 30px;
+  color: #fff;
   font-size: 17px;
   font-weight: 800;
   font-family: 'Lato', sans-serif;
@@ -103,7 +103,7 @@ input[type='number']:focus {
   color: rgb(152, 192, 42);
   border-radius: 30px;
   border: none;
-  padding: 14px 120px;
+  padding: 14px 80px;
   font-size: 17px;
   font-weight: 600;
   font-family: 'Lato', sans-serif;
@@ -112,12 +112,6 @@ input[type='number']:focus {
 .add-car-btn:hover {
   background: rgb(152, 192, 42);
   color: rgb(242, 243, 239);
-  border-radius: 30px;
-  border: none;
-  padding: 14px 120px;
-  font-size: 17px;
-  font-weight: 600;
-  font-family: 'Lato', sans-serif;
 }
 
 ::placeholder {
@@ -129,10 +123,6 @@ input[type='number']:focus {
 }
 
 @media screen and (max-width: 1025px) {
-  .back {
-    display: none;
-  }
-
   .text-add-car h5 {
     display: none;
   }
@@ -146,7 +136,8 @@ input[type='number']:focus {
   input[type='text'] {
     font-size: 14px;
     font-weight: 700;
-    padding: 2px 5px;
+    padding: 2px 25px;
+    color: #fff;
   }
 
   input[type='number'] {

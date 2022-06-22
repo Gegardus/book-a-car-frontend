@@ -14,7 +14,7 @@ import './sidebar.css';
 
 const navigation = [
   { name: 'Cars', href: '/home', current: true },
-  { name: 'Reserve', href: 'reserve', current: false },
+  { name: 'Reserve', href: '/reserve', current: false },
   { name: 'My reservations', href: '/reservations', current: false },
 ];
 
@@ -50,7 +50,7 @@ const Sidebar = ({ currentUser }) => {
 
       <span className="user-mail">{currentUser.email}</span>
 
-      <div className="flex-1 flex flex-col pt-3 pb-4 overflow-y-auto">
+      <div className="flex-1 flex flex-col pt-3 pb-4">
         <div className="flex items-center flex-shrink-0 px-4">
           <a href="/">
             <img src={logo} className="w-40" alt="logo" />

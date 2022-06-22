@@ -154,10 +154,6 @@ select:focus {
 }
 
 @media screen and (max-width: 1025px) {
-  .back {
-    display: none;
-  }
-
   .add-reservation-title {
     font-size: 27px;
     font-family: 'Cocogoose', sans-serif;

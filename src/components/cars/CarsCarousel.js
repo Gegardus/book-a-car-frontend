@@ -29,15 +29,14 @@ const CarsCarousel = () => {
       {displayCars.map((item) => (
         <div className="flex flex-col items-center w-80 bg-green-200" key={item.id}>
           <Link to={`/CarDetails/${item.id}`}>
-            <img src={item.carImg} alt="car" className="car rounded-full w-60 h-60 blob" />
-            <h2>{item.carModel}</h2>
-            <h3 className="uppercase text-slate-900 text-lg mt-6 font-bold">
+            <img src={item.carImg} alt="car" className="car rounded-full w-60 h-60 m-auto blob" />
+            <h2 className="text-center">{item.carModel}</h2>
+            <hr className="border-t-2 border-dashed border-gray-100 w-32 mt-4 m-auto" />
+            <p className="text-gray-400 text-center font-semibold mt-4">
               {item.carDescription}
-            </h3>
+            </p>
           </Link>
-          <hr className="border-t-2 border-dashed border-gray-500 w-32 mt-4" />
-          <p className="text-gray-400 text-center font-semibold mt-4">{item.details}</p>
-          <div className="flex gap-4 mt-4">
+          <div className="flex gap-4 mt-2">
             {social.map((item) => (
               <a href="/" key={item.icon}><img src={item.icon} alt="social" className="w-8" /></a>
             ))}
