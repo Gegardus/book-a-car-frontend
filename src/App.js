@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Axios from 'axios';
 import { getCarsFromAPI } from './redux/reducers/cars';
 import Splash from './pages/splashcreen/SplashScreen';
 import Home from './pages/Home';
@@ -14,22 +14,10 @@ import withAuth from './components/auth/withAuth';
 import CarDetailsPage from './pages/CarDetails/CarDetailsPage';
 import './App.css';
 
-function App() {
+function App( {currentUser } ) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCarsFromAPI());
-  }, []);
-
-  const [role, setRole] = useState('');
-  useEffect(() => {
-    Axios.get('https://final-capstone-back.herokuapp.com/current_user', {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token'),
-      },
-    }).then((response) => {
-      setRole(response.data.role);
-    });
   }, []);
 
   return (
@@ -41,10 +29,10 @@ function App() {
           <Route path="/reserve" component={withAuth(Reserve)} />
           <Route path="/add_reservations" component={withAuth(AddReservation)} />
           <Route path="/reservations" component={withAuth(Reservations)} />
-          {role === 'admin' && (
+          {currentUser.role === 'admin' && (
             <Route path="/add_car" component={withAuth(AddCar)} />
           )}
-          {role === 'admin' && (
+          {currentUser.role === 'admin' && (
             <Route path="/delete" component={withAuth(DeleteCar)} />
           )}
           <Route path="/CarDetails/:Id" component={withAuth(CarDetailsPage)} />
@@ -54,4 +42,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = ({ auth: { currentUser } }) => {
+  return { currentUser };
+};
+
+export default connect(mapStateToProps)(App);

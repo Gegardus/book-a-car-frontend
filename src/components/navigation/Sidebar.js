@@ -1,9 +1,8 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Axios from 'axios';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
@@ -29,18 +28,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Sidebar = ({ currentUser }) => {
-  const [role, setRole] = useState('');
-  useEffect(() => {
-    Axios.get('https://final-capstone-back.herokuapp.com/current_user', {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token'),
-      },
-    }).then((response) => {
-      setRole(response.data.role);
-    });
-  }, []);
+const Sidebar = ( { currentUser } ) => {
+
 
   return (
     <div className="flex flex-col w-64 sidebar-wrapper">
@@ -74,7 +63,7 @@ const Sidebar = ({ currentUser }) => {
               </a>
             ))}
             <div className="nav-column">
-              {role === 'admin' && (
+              {currentUser.role === 'admin' && (
                 <NavLink
                   to="/add_car"
                   className={({ isActive }) => (isActive ? 'active' : 'inactive')}
@@ -83,7 +72,7 @@ const Sidebar = ({ currentUser }) => {
                 </NavLink>
               )}
 
-              {role === 'admin' && (
+              {currentUser.role === 'admin' && (
                 <NavLink
                   to="/delete"
                   className={({ isActive }) => (isActive ? 'active' : 'inactive')}

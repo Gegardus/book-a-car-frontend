@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { MenuIcon, XIcon } from '@heroicons/react/solid';
-import Axios from 'axios';
+import { MenuIcon, XIcon } from '@heroicons/react/solid'
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
@@ -27,18 +27,7 @@ const social = [
   { icon: github },
 ];
 
-const Hamburger = () => {
-  const [role, setRole] = useState('');
-  useEffect(() => {
-    Axios.get('https://final-capstone-back.herokuapp.com/current_user', {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token'),
-      },
-    }).then((response) => {
-      setRole(response.data.role);
-    });
-  }, []);
+const Hamburger = ( { currentUser } ) => {
 
   const [mobileMenu, setMobileMenu] = useState(false);
   return (
@@ -83,7 +72,7 @@ const Hamburger = () => {
             ))}
           </ul>
           <div className="hamburger-column">
-            {role === 'admin' && (
+            {currentUser.role === 'admin' && (
               <NavLink
                 to="/add_car"
                 className={({ isActive }) => (isActive ? 'active' : 'inactive')}
@@ -92,7 +81,7 @@ const Hamburger = () => {
               </NavLink>
             )}
 
-            {role === 'admin' && (
+            {currentUser.role === 'admin' && (
               <NavLink
                 to="/delete"
                 className={({ isActive }) => (isActive ? 'active' : 'inactive')}
@@ -124,6 +113,9 @@ const Hamburger = () => {
       </div>
     </header>
   );
-};
 
-export default Hamburger;
+};
+const mapStateToProps = ({ auth: { currentUser } }) => {
+  return { currentUser };
+}
+export default connect(mapStateToProps)(Hamburger);
