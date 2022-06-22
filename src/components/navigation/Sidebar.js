@@ -1,9 +1,9 @@
 /* eslint-disable arrow-body-style */
+/* eslint-disable no-confusing-arrow */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Axios from 'axios';
 import logo from '../../assets/images/logo.png';
 import twitter from '../../assets/images/twitter-icon.png';
 import facebook from '../../assets/images/facebook-icon.png';
@@ -12,12 +12,6 @@ import github from '../../assets/images/github-icon.png';
 import Logout from '../auth/Logout';
 import './sidebar.css';
 
-const navigation = [
-  { name: 'Cars', href: '/home', current: true },
-  { name: 'Reserve', href: '/reserve', current: false },
-  { name: 'My reservations', href: '/reservations', current: false },
-];
-
 const social = [
   { icon: twitter },
   { icon: facebook },
@@ -25,23 +19,7 @@ const social = [
   { icon: github },
 ];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
 const Sidebar = ({ currentUser }) => {
-  const [role, setRole] = useState('');
-  useEffect(() => {
-    Axios.get('https://final-capstone-back.herokuapp.com/current_user', {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token'),
-      },
-    }).then((response) => {
-      setRole(response.data.role);
-    });
-  }, []);
-
   return (
     <div className="flex flex-col w-64 sidebar-wrapper">
       <span className="nav-header">
@@ -58,35 +36,38 @@ const Sidebar = ({ currentUser }) => {
         </div>
         <nav className="mt-12 flex-1 desktop-nav" aria-label="Sidebar">
           <div className="pl-3 uppercase font-black text-md">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={classNames(
-                  item.current
-                    ? 'bg-lime-500 text-slate-50'
-                    : 'text-slate-900 hover:bg-lime-200',
-                  'group flex items-center pl-5 py-3 hover:text-slate-900',
-                )}
-                aria-current={item.current ? 'page' : undefined}
-              >
-                {item.name}
-              </a>
-            ))}
             <div className="nav-column">
-              {role === 'admin' && (
+              <NavLink
+                to="/home"
+                className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+              >
+                <p>CARS</p>
+              </NavLink>
+              <NavLink
+                to="/reserve"
+                className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+              >
+                <p>RESERVE</p>
+              </NavLink>
+              <NavLink
+                to="/reservations"
+                className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+              >
+                <p>MY RESERVATIONS</p>
+              </NavLink>
+              {currentUser.role === 'admin' && (
                 <NavLink
                   to="/add_car"
-                  className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+                  className={({ isActive }) => isActive ? 'active' : 'inactive'}
                 >
                   <p>ADD CAR</p>
                 </NavLink>
               )}
 
-              {role === 'admin' && (
+              {currentUser.role === 'admin' && (
                 <NavLink
                   to="/delete"
-                  className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+                  className={({ isActive }) => isActive ? 'active' : 'inactive'}
                 >
                   <p>DELETE CAR</p>
                 </NavLink>
