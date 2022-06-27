@@ -1,6 +1,7 @@
 const CREATE_RESERVATION = 'reservations/CREATE_RESERVATION';
 const GET_RESERVATIONS = 'reservations/GET_RESERVATIONS';
 const DELETE_RESERVATION = 'reservation/DELETE_RESERVATION';
+const BASE_URL = 'http://localhost:3001/api/v1';
 
 const initialState = [];
 
@@ -21,7 +22,7 @@ export const deleteReservation = (payload) => ({
 
 export const addReservationToAPI = (payload) => async (dispatch) => {
   const token = localStorage.getItem('token');
-  const response = await fetch('http://localhost:3001/api/v1/reservations', {
+  const response = await fetch(`${BASE_URL}/reservations/`, {
     method: 'POST',
     headers: {
       Authorization: `${token}`,
@@ -35,7 +36,7 @@ export const addReservationToAPI = (payload) => async (dispatch) => {
 
 export const getReservationsFromAPi = () => async (dispatch) => {
   const token = localStorage.getItem('token');
-  const response = await fetch('http://localhost:3001/api/v1/reservations', {
+  const response = await fetch(`${BASE_URL}/reservations/`, {
     headers: {
       Authorization: `${token}`,
     },
@@ -46,7 +47,7 @@ export const getReservationsFromAPi = () => async (dispatch) => {
 
 export const deleteReservationFromApi = (id) => async (dispatch) => {
   const token = localStorage.getItem('token');
-  await fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
+  await fetch(`${BASE_URL}/reservations/${id}`, {
     method: 'DELETE',
     headers: {
       Authorization: `${token}`,

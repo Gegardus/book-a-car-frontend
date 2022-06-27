@@ -1,6 +1,7 @@
 const CREATE_CAR = 'carStore/cars/CREATE_CARS';
 const GET_CARS = 'carStore/cars/GET_CARS';
 const DELETE_CAR = 'carStore/ca/DELETE_CAR';
+const BASE_URL = 'http://localhost:3001/api/v1';
 
 const initialState = [];
 
@@ -15,7 +16,7 @@ export const createCar = (payload) => ({
 });
 
 export const addCarToAPI = (car) => async (adding) => {
-  const response = await fetch('http://localhost:3001/api/v1/cars', {
+  const response = await fetch(`${BASE_URL}/cars/`, {
     method: 'POST',
     body: JSON.stringify(car),
     headers: {
@@ -30,7 +31,7 @@ export const addCarToAPI = (car) => async (adding) => {
 };
 
 export const getCarsFromAPI = () => async (storing) => {
-  const result = await fetch('http://localhost:3001/api/v1/cars', {
+  const result = await fetch(`${BASE_URL}/cars/`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: localStorage.getItem('token'),
@@ -57,7 +58,7 @@ export const removeCar = (payload) => ({
 });
 
 export const removeCarFromAPI = (id) => async (dispatch) => (
-  fetch(`http://localhost:3001/api/v1/cars/${id}`, {
+  fetch(`${BASE_URL}/cars/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: localStorage.getItem('token'),
