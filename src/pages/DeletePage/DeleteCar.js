@@ -27,8 +27,8 @@ const DeleteCar = () => {
           </div>
           {cars.map((car) => (
             <div key={car.id}>
-              <img src={car.carImg} alt="delete" className="car rounded-full w-40 h-40 m-auto blob"/>
-              <div className="flex justify-end space-x-1 font-serif text-lg mr-4">              
+              <img src={car.carImg} alt="delete" className="car rounded-full w-40 h-40 m-auto blob" />
+              <div className="flex justify-end space-x-1 font-serif text-lg mr-4">
                 <button className="bg-yellow-300 text-black p-1 rounded-md" onClick={() => handleDelete(car.id)} type="button">
                   Remove
                 </button>
