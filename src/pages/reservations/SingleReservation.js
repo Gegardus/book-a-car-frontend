@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteReservationFromApi } from '../../redux/reducers/reservations/reservations';
 import DaysOfRental from './Count';
 
+// const BASE_URL = 'http://localhost:3001/api/v1';
+const BASE_URL = 'https://final-capstone-back.herokuapp.com/api/v1';
+
 const SingleReservation = (props) => {
   const { reservation } = props;
   const dispatch = useDispatch();
@@ -28,10 +31,10 @@ const SingleReservation = (props) => {
     });
     return carModel;
   };
-
+  
   const [name, setName] = useState('');
   useEffect(() => {
-    Axios.get('http://localhost:3001/current_user', {
+    Axios.get(`${BASE_URL}/current_user/`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: localStorage.getItem('token'),
