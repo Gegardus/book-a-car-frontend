@@ -1,6 +1,8 @@
 /* eslint-disable consistent-return */
 import { AUTHENTICATED, NOT_AUTHENTICATED } from '.';
 
+const BASE_URL = 'https://final-capstone-back.herokuapp.com/';
+
 const setToken = (token) => {
   localStorage.setItem('token', token);
   localStorage.setItem('lastLoginTime', new Date(Date.now()).getTime());
@@ -15,7 +17,7 @@ const getToken = () => {
   }
 };
 
-export const checkAuth = () => (dispatch) => fetch('http://localhost:3001/current_user', {
+export const checkAuth = () => (dispatch) => fetch(`${BASE_URL}/current_user/`, {
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
