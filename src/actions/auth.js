@@ -1,6 +1,8 @@
 /* eslint-disable consistent-return */
 import { AUTHENTICATED, NOT_AUTHENTICATED } from '.';
 
+const BASE_URL = 'https://final-capstone-back.herokuapp.com/';
+
 const setToken = (token) => {
   localStorage.setItem('token', token);
   localStorage.setItem('lastLoginTime', new Date(Date.now()).getTime());
@@ -15,7 +17,7 @@ const getToken = () => {
   }
 };
 
-export const checkAuth = () => (dispatch) => fetch('http://localhost:3001/current_user', {
+export const checkAuth = () => (dispatch) => fetch(`${BASE_URL}/current_user/`, {
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -30,7 +32,7 @@ export const checkAuth = () => (dispatch) => fetch('http://localhost:3001/curren
   return Promise.reject(dispatch({ type: NOT_AUTHENTICATED }));
 });
 
-export const signupUser = (credentials) => (dispatch) => fetch('http://localhost:3001/signup', {
+export const signupUser = (credentials) => (dispatch) => fetch(`${BASE_URL}/signup/`, {
   method: 'POST',
   headers: {
     Accept: 'application/json',
@@ -50,7 +52,7 @@ export const signupUser = (credentials) => (dispatch) => fetch('http://localhost
   });
 });
 
-export const loginUser = (user) => (dispatch) => fetch('http://localhost:3001/login', {
+export const loginUser = (user) => (dispatch) => fetch(`${BASE_URL}/login/`, {
   method: 'POST',
   headers: {
     Accept: 'application/json',
@@ -70,7 +72,7 @@ export const loginUser = (user) => (dispatch) => fetch('http://localhost:3001/lo
   });
 });
 
-export const logoutUser = () => (dispatch) => fetch('http://localhost:3001/logout', {
+export const logoutUser = () => (dispatch) => fetch(`${BASE_URL}/logout/`, {
   method: 'DELETE',
   headers: {
     Accept: 'application/json',
