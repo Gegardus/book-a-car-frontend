@@ -10,7 +10,7 @@ import style from './Detail.module.scss';
 const BASE_URL = 'https://final-capstone-back.herokuapp.com/api/v1';
 
 const CarDetails = () => {
-  const { Id } = useParams();
+  const { id } = useParams();
   const [car, setCar] = useState({});
   const fetchCar = async () => {
     const res = await fetch(`${BASE_URL}/cars/${id}`, {
