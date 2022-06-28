@@ -6,11 +6,14 @@ import { HiChevronDoubleRight } from 'react-icons/hi';
 import { carId } from '../../redux/reducers/reservations/carId';
 import style from './Detail.module.scss';
 
+// const BASE_URL = 'http://localhost:3001/api/v1';
+const BASE_URL = 'https://final-capstone-back.herokuapp.com/api/v1';
+
 const CarDetails = () => {
-  const { Id } = useParams();
+  const { id } = useParams();
   const [car, setCar] = useState({});
   const fetchCar = async () => {
-    const res = await fetch(`http://localhost:3001/api/v1/cars/${Id}`, {
+    const res = await fetch(`${BASE_URL}/cars/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: localStorage.getItem('token'),
