@@ -15,7 +15,7 @@
 
 ## Backend Repository Link
 
-<a href="https://github.com/VuDej/final-capstone-back-end/">Book A Car Backend</a>
+<a href="https://github.com/Gegardus/book-a-car-backend/">Book A Car Backend</a>
 
 <a href="https://github.com/Gegardus/book-a-car-frontend#readme"><strong>Explore the docs »</strong></a>
 <br />
