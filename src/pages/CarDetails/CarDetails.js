@@ -7,7 +7,7 @@ import { carId } from '../../redux/reducers/reservations/carId';
 import style from './Detail.module.scss';
 
 // const BASE_URL = 'http://localhost:3001/api/v1';
-const BASE_URL = 'https://final-capstone-back.herokuapp.com/api/v1';
+const BASE_URL = 'https://book-a-car-backend-production.up.railway.app/api/v1';
 
 const CarDetails = () => {
   const { id } = useParams();

@@ -2,7 +2,7 @@ const CREATE_CAR = 'carStore/cars/CREATE_CARS';
 const GET_CARS = 'carStore/cars/GET_CARS';
 const DELETE_CAR = 'carStore/ca/DELETE_CAR';
 // const BASE_URL = 'http://localhost:3001/api/v1';
-const BASE_URL = 'https://final-capstone-back.herokuapp.com/api/v1';
+const BASE_URL = 'https://book-a-car-backend-production.up.railway.app/api/v1';
 
 const initialState = [];
 

@@ -6,7 +6,7 @@ import { deleteReservationFromApi } from '../../redux/reducers/reservations/rese
 import DaysOfRental from './Count';
 
 // const BASE_URL = 'http://localhost:3001/api/v1';
-const BASE_URL = 'https://final-capstone-back.herokuapp.com/api/v1';
+const BASE_URL = 'https://book-a-car-backend-production.up.railway.app/api/v1';
 
 const SingleReservation = (props) => {
   const { reservation } = props;

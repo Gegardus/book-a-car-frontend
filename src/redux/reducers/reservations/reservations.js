@@ -2,7 +2,7 @@ const CREATE_RESERVATION = 'reservations/CREATE_RESERVATION';
 const GET_RESERVATIONS = 'reservations/GET_RESERVATIONS';
 const DELETE_RESERVATION = 'reservation/DELETE_RESERVATION';
 // const BASE_URL = 'http://localhost:3001/api/v1';
-const BASE_URL = 'https://final-capstone-back.herokuapp.com/api/v1';
+const BASE_URL = 'https://book-a-car-backend-production.up.railway.app/api/v1';
 
 const initialState = [];
 

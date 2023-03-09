@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 import { AUTHENTICATED, NOT_AUTHENTICATED } from '.';
 
-const BASE_URL = 'https://final-capstone-back.herokuapp.com/';
+const BASE_URL = 'https://book-a-car-backend-production.up.railway.app/';
 
 const setToken = (token) => {
   localStorage.setItem('token', token);
